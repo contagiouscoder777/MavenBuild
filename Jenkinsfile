@@ -34,7 +34,7 @@ node('Slave'){
 	}
 
 	stage ('Deployment'){
-		ansiblePlaybook become: true, colorized: true, disableHostKeyChecking: true, playbook: 'deploy.yml'
+		deploy contextPath: 'mvnPipeline', war: '**/*.war'
 
 	stage ('Notification'){
 		emailext (
